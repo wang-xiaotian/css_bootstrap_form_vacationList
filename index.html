@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vacation List</title>
+    <link rel="stylesheet" href="css/bs5/css/bootstrap.css" />
+    <link rel="stylesheet" href="css/xander.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="titleContainer" class="row container-fluid mb-3">
+        <div class="row">
+          <h1 id="title" class="display-2">Vacation Wishlist</h1>
+        </div>
+        <div class="row">
+          <h3 id="subtitle">
+            <small class="text-muted">Add your destination here</small>
+          </h3>
+        </div>
+      </div>
+      <div id="content" class="row mb-3 d-flex justify-content-around">
+        <div id="updateDestidation" class="col">
+          <form>
+            <!-- 2 column grid layout with text inputs for the first and last names -->
+            <div class="row mb-4">
+              <div class="col">
+                <div class="form-outline">
+                  <input
+                    type="text"
+                    id="destination"
+                    class="form-control"
+                    placeholder="Destination: City, Country"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Text input -->
+            <div class="form-outline mb-4">
+              <input
+                type="url"
+                id="imageUrl"
+                class="form-control"
+                placeholder="Image URL: https://example.com"
+                pattern="https://.*"
+                required
+              />
+            </div>
+
+            <!-- Message input -->
+            <div class="form-outline mb-4">
+              <textarea
+                class="form-control"
+                id="description"
+                rows="4"
+                placeholder="Description"
+              ></textarea>
+            </div>
+
+            <!-- Submit button -->
+            <button id="loadOnCardBT" type="submit" class="btn btn-primary">
+              Load
+            </button>
+            <button id="resetBT" type="reset" class="btn btn-warning">
+              Reset
+            </button>
+          </form>
+        </div>
+
+        <div class="col d-flex justify-content-center">
+          <div class="card" style="width: 18rem">
+            <div class="card-header text-center">Destination</div>
+            <img
+              id="imgURL"
+              src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+              class="card-img-top"
+              alt="this is a mountain"
+            />
+            <div class="card-body">
+              <p class="card-text">short description about your destination!</p>
+              <button type="submit" class="btn btn-info">Edit</button>
+              <button type="submit" class="btn btn-primary">Add</button>
+              <button type="submit" class="btn btn-danger">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="css/bs5/js/bootstrap.js"></script>
+    <script src="script/script.js"></script>
+  </body>
+</html>
