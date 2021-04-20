@@ -69,8 +69,10 @@
         </div>
 
         <div id="displayCard" class="col d-flex justify-content-center">
-          <div class="card" style="width: 18rem">
-            <div class="card-header text-center">Destination</div>
+          <div class="card mx-auto" style="width: 18rem">
+            <div id="cardDestination" class="card-header text-center">
+              Destination
+            </div>
             <img
               id="cardImgUrl"
               src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
@@ -82,13 +84,17 @@
                 short description about your destination!
               </p>
               <button type="submit" class="btn btn-info">Edit</button>
-              <button type="submit" class="btn btn-primary">Add</button>
+              <button id="addToDisplay" type="submit" class="btn btn-primary">
+                Add
+              </button>
               <button type="submit" class="btn btn-danger">Delete</button>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <hr class="style18" />
+    <div id="displayContainer" class="container"></div>
 
     <script src="css/bs5/js/bootstrap.js"></script>
     <script src="script/script.js"></script>

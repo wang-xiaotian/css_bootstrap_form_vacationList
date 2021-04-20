@@ -2,6 +2,7 @@
 const unsplashAPI =
   "https://api.unsplash.com/search/photos?client_id=CLnWpARpr78PvJHV7Y6ApKdMDkFoxb2eqr_UxKHeO5g&page=1&query=";
 
+// query unsplash and return json formatted response
 async function query(term) {
   let api = unsplashAPI + term;
   try {
@@ -13,14 +14,12 @@ async function query(term) {
   }
 }
 
-function imgUrl(term) {
-  query(term).then((response) => {
-    let result = response.results[random(10)].urls.large;
-    console.log(result.length);
-    return result;
-  });
+// generate random index number for an array
+function random(x) {
+  return Math.floor(Math.random() * x);
 }
 
+// load image and destination info on the card
 document.getElementById("loadOnCardBT").addEventListener("click", (event) => {
   event.preventDefault();
   //alert("load on card");
@@ -38,9 +37,12 @@ document.getElementById("loadOnCardBT").addEventListener("click", (event) => {
       console.log(response.results.length);
     });
     cardText.innerHTML = description;
+    document.getElementById("cardDestination").innerHTML = term;
   }
 });
 
-function random(x) {
-  return Math.floor(Math.random() * x);
+document.getElementById("addToDisplay").addEventListener("click", (e) => {});
+
+function createDestinationCard() {
+  document.getElementById("displayContainer");
 }
