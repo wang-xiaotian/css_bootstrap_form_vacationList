@@ -37,12 +37,57 @@ document.getElementById("loadOnCardBT").addEventListener("click", (event) => {
       console.log(response.results.length);
     });
     cardText.innerHTML = description;
-    document.getElementById("cardDestination").innerHTML = term;
+    document.getElementById("location").innerHTML = term;
   }
 });
 
-document.getElementById("addToDisplay").addEventListener("click", (e) => {});
+document.getElementById("addToDisplay").addEventListener("click", (e) => {
+  let display = document.getElementById("displayContainer");
+  let location = document.getElementById("location").innerText;
+  let img = document.getElementById("cardImgUrl").src;
+  let description = document.getElementById("card-text").innerText;
+  display.appendChild(createDestinationCard(location, img, description));
+});
 
-function createDestinationCard() {
-  document.getElementById("displayContainer");
+function createDestinationCard(destination, destinationImg, description) {
+  let divCon = document.createElement("div");
+  divCon.setAttribute("class", "col-md-3 d-flex pb-3");
+  let divCard = document.createElement("div");
+  divCard.setAttribute("class", "card container-fluid");
+  let imgTop = document.createElement("img");
+  if (destinationImg !== null) {
+    imgTop.setAttribute("src", destinationImg);
+  } else {
+    imgTop.setAttribute("src", "img/default.png");
+  }
+  imgTop.setAttribute("class", "card-img-top");
+  imgTop.setAttribute("alt", destination + " is my destination");
+
+  imgTop.setAttribute("object-fit", "cover");
+  let divBody = document.createElement("div");
+  divBody.setAttribute("class", "card-body");
+  let cardTitle = document.createElement("h5");
+  cardTitle.setAttribute("class", "card-title");
+  cardTitle.innerHTML = destination;
+  let destinationDescrip = document.createElement("p");
+  destinationDescrip.setAttribute("class", "card-text col-md-8");
+  destinationDescrip.innerHTML = description;
+  let deleteBN = document.createElement("a");
+  deleteBN.setAttribute(
+    "class",
+    "btn btn-danger position-absolute bottom-0 end-0 m-2"
+  );
+  // applyBN.setAttribute("position", "absolute");
+  // applyBN.setAttribute("left", 0);
+  // applyBN.setAttribute("bottom", 0);
+
+  deleteBN.innerHTML = "Delete";
+
+  divBody.appendChild(cardTitle);
+  divBody.appendChild(destinationDescrip);
+  divBody.appendChild(deleteBN);
+  divCard.appendChild(imgTop);
+  divCard.appendChild(divBody);
+  divCon.appendChild(divCard);
+  return divCon;
 }
